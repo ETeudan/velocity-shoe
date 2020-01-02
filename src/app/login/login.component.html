@@ -1,0 +1,68 @@
+<div fxLayout="row" fxFlexFill layout-align="end">
+  <div fxFlex="55%">
+    <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" autocomplete="off" novalidate class="formWidth">
+      <div fxLayout="column" layout-align="start stretch">
+        <div fxLayoutAlign="center center" style="height: 15vh">
+          <div fxLayoutAlign="start center" class="login-form-width">
+            <img mat-card-image class="main-logo" src="assets/img/logo-with-title.png">
+          </div>
+        </div>
+        <div fxLayoutAlign="center center" style="height: 85vh;">
+          <div class="login-form-width">
+          <div fxLayout="column" layout-align="start stretch">
+            <div fxLayoutAlign="start center" class="sign-in-text">
+              Sign in to Velocity
+            </div>
+            <div fxLayoutAlign="start center" class="info-text">
+              Please enter your credentials to proceed.
+            </div>
+            <div fxLayoutAlign="start center" >
+              <mat-form-field fxFlexFill appearance="outline">
+                <mat-label>Username</mat-label>
+                <input matInput (ngModel)="userName" name="userName" id="userName" [(value)]="userName" placeholder="Enter your email" required>
+                <mat-error *ngIf="emailForm.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayoutAlign="start center">
+              <mat-form-field fxFlexFill appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput (ngModel)="decryptedPassword" name="decryptedPassword" id="decryptedPassword" [(value)]="password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                  <mat-icon svgIcon="{{hide ? 'visibility_off' : 'visibility'}}"></mat-icon>
+                </button>
+                <mat-error *ngIf="passwordForm.invalid">{{getErrorMessagePassword()}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayoutAlign="start center">
+              <mat-form-field fxFlexFill class="hide">
+                <input matInput (ngModel)="csrfToken" name="authToken" [(value)]="csrfToken">
+              </mat-form-field>
+            </div>
+            <div fxLayoutAlign="start center">
+              <button mat-flat-button type="submit" [disabled]="loginForm.invalid" class="sign-in-btn">Sign in</button>
+            </div>
+            <div fxLayoutAlign="start center">
+              <mat-spinner class="spiner"
+                           color="primary"
+                           mode="indeterminate"
+                           value="50"
+                           diameter="20"
+                           *ngIf="tokenLoaded === false">
+              </mat-spinner>
+              <toaster-container></toaster-container>
+            </div>
+            <div fxLayoutAlign="start center">
+              <button mat-flat-button color="accent" (click)="logout()">Logout</button>
+            </div>
+          </div>
+          </div>
+          </div>
+        </div>
+    </form>
+  </div>
+  <div fxFlex="45%">
+    <div fxFlexFill fxLayoutAlign="end start" >
+      <img fxFlexFill mat-card-image src="assets/img/zac-ong-394558-unsplash.png">
+    </div>
+  </div>
+</div>

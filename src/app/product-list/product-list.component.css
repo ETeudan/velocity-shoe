@@ -1,0 +1,79 @@
+.full-width-table {
+  width: 100%;
+}
+
+.total-results {
+  font-family: Rubik;
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.78;
+  letter-spacing: normal;
+  color: #2e384d;
+}
+
+.color-submit-btn {
+  background-color: #2e5bff;
+  color: white;
+  padding-right: 69px;
+  padding-left: 69px;
+}
+
+.padding-bottom-20 {
+  padding-bottom: 20px;
+}
+
+.mat-column-code {
+  width: 12%;
+}
+
+.mat-column-name {
+  width: 25%;
+}
+
+.mat-column-color {
+  width: 15%;
+}
+
+.mat-column-size {
+  width: 15%;
+}
+
+.mat-column-manufacturer {
+  width: 15%;
+}
+
+.mat-column-price {
+  width: 15%;
+}
+
+.mat-column-url {
+  width: 3%;
+}
+
+.mat-cell {
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2;
+  letter-spacing: 0.44px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.mat-header-cell {
+  font-family: Roboto;
+  font-size: 12px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 2.33;
+  letter-spacing: 0.38px;
+  color: rgba(0, 0, 0, 0.54);
+}
+
+.background-color-white {
+  background-color: white;
+}

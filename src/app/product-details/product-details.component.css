@@ -1,0 +1,25 @@
+.header-text {
+  font-family: Rubik;
+  font-size: 18px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.78;
+  letter-spacing: normal;
+  color: #2e384d;
+}
+
+.not-resize {
+  resize: none;
+}
+
+.color-submit-btn {
+  background-color: #2e5bff;
+  color: white;
+  padding-right: 50px;
+  padding-left: 50px;
+}
+
+.form-margin {
+  margin-top: 3%;
+}

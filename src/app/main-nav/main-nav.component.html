@@ -1,0 +1,82 @@
+<mat-sidenav-container class="sidenav-container background-color-white">
+  <mat-sidenav
+      #drawer
+      class="sidenav"
+      fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="border-bottom">
+      <img mat-card-image class="main-logo" src="assets/img/logo-with-title.png">
+    </mat-toolbar>
+    <mat-nav-list class="left-nav-bar">
+      <a mat-list-item class="border-left" [routerLink]="['/products']">
+        <mat-icon svgIcon="border_all"></mat-icon>
+        <p>Shoes</p>
+      </a>
+      <a mat-list-item class="border-left" href="#">
+        <mat-icon svgIcon="bar_chart"></mat-icon>
+        <p>Analytics</p>
+      </a>
+      <a mat-list-item class="border-left" href="#">
+        <mat-icon svgIcon="directions_car"></mat-icon>
+        <p>Employees</p>
+      </a>
+      <a mat-list-item class="border-left" href="#">
+        <mat-icon svgIcon="people_outline"></mat-icon>
+        <p>Customers</p>
+      </a>
+      <a mat-list-item class="border-left" href="#">
+        <mat-icon svgIcon="map"></mat-icon>
+        <p>Locations</p>
+      </a>
+      <a mat-list-item class="border-left" href="#">
+        <mat-icon svgIcon="mail_outline"></mat-icon>
+        <p>Chat</p>
+      </a>
+      <a mat-list-item class="border-left" href="#">
+        <mat-icon svgIcon="settings_applications"></mat-icon>
+        <p>Settings</p>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="border-bottom background-color-white">
+      <div fxLayout="row" fxLayoutAlign="start baseline" fxLayoutGap="10px" class="width-100">
+        <div fxFlex="50%" fxFlex.lt-md="50%" class="total-results">
+          <button type="button"
+                  aria-label="Toggle sidenav"
+                  mat-icon-button
+                  (click)="drawer.toggle()"
+                  *ngIf="isHandset$ | async">
+            <mat-icon svgIcon="menu" class="menu-navbar"></mat-icon>
+          </button>
+          <span>{{title}}</span>
+        </div>
+        <div fxFlex="50%" fxFlex.lt-md="50%">
+          <div fxLayout="row" fxLayoutAlign="end baseline" fxLayoutGap="0px">
+            <div>
+            </div>
+            <div class="padding-bottom-20">
+              <div fxLayout="row" fxLayoutAlign="center baseline">
+                <div>
+                  <mat-icon svgIcon="notifications_none"></mat-icon>
+                </div>
+                <div>
+                  <mat-icon svgIcon="mail_outline"></mat-icon>
+                </div>
+                <div>
+                  <a href="#">
+                    <img mat-card-image class="user-image" src="assets/img/user-img.png">
+                  </a>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </mat-toolbar>
+    <!-- Content is plotted here by child component from routes - children component -->
+    <router-outlet name="content"></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>
