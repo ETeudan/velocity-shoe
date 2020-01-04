@@ -9,6 +9,7 @@ import { MainNavService } from '../main-nav/main-nav.service';
 import { IProduct } from '../shared/product.model';
 import { ProductService } from '../shared/product.service';
 import { DialogService } from '../shared/dialog.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-product-details',
@@ -61,15 +62,20 @@ export class ProductDetailsComponent implements OnInit {
     updateProduct(formValues) {
         if (this.productForm.dirty) {
             this.product.uuid = this.route.snapshot.params['uuid'];
-            this.productService.updateProductKodaris(this.product).subscribe((data: any) => {
-                if (!data.success) {
-                    this.toasterService.pop('success', 'Success', 'Product updated');
-                    this.productForm.form.markAsPristine();
+            this.productService.updateProductKodaris(this.product)
+                  .subscribe((data: any) => {
+                    if (!data.success) {
+                        this.toasterService.pop('success', 'Success', 'Product updated');
+                        this.productForm.form.markAsPristine();
 
-                } else {
-                    this.toasterService.pop('error', 'Error', 'Product was not changed');
-                }
-            })
+                    } else {
+                        this.toasterService.pop('info', 'Info', 'Something went wront. Try again.');
+                      }
+                  },
+                  (error: HttpErrorResponse) => {
+                      this.toasterService.pop('error', 'Error', 'Product was not changed');
+                  }
+              )
         }
         else {
             this.toasterService.pop('info', 'Info', 'Nothing to save');

@@ -19,14 +19,14 @@
             <div fxLayoutAlign="start center" >
               <mat-form-field fxFlexFill appearance="outline">
                 <mat-label>Username</mat-label>
-                <input matInput (ngModel)="userName" name="userName" id="userName" [(value)]="userName" placeholder="Enter your email" required>
+                <input matInput [(ngModel)]="userName" name="userName" id="userName"  placeholder="Enter your email" required>
                 <mat-error *ngIf="emailForm.invalid">{{getErrorMessage()}}</mat-error>
               </mat-form-field>
             </div>
             <div fxLayoutAlign="start center">
               <mat-form-field fxFlexFill appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput (ngModel)="decryptedPassword" name="decryptedPassword" id="decryptedPassword" [(value)]="password" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
+                <input matInput [(ngModel)]="decryptedPassword" name="decryptedPassword" id="decryptedPassword" placeholder="Enter your password" [type]="hide ? 'password' : 'text'" required>
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon svgIcon="{{hide ? 'visibility_off' : 'visibility'}}"></mat-icon>
                 </button>
@@ -35,7 +35,7 @@
             </div>
             <div fxLayoutAlign="start center">
               <mat-form-field fxFlexFill class="hide">
-                <input matInput (ngModel)="csrfToken" name="authToken" [(value)]="csrfToken">
+                <input matInput [(ngModel)]="csrfToken" name="authToken">
               </mat-form-field>
             </div>
             <div fxLayoutAlign="start center">

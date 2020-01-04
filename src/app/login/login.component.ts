@@ -4,6 +4,7 @@ import { AuthService } from '../shared/auth.service';
 import { Validators, FormControl } from '@angular/forms';
 import { Title } from '@angular/platform-browser';
 import { ToasterService } from 'angular2-toaster';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ export class LoginComponent implements OnInit {
     hide = true;
     csrfToken: string;
     userName: string;
-    password: string;
+    decryptedPassword: string;
     tokenLoaded = false;
     emailForm = new FormControl('', [Validators.required, Validators.email]);
     passwordForm = new FormControl('', [Validators.required]);
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
                 this.tokenLoaded = true;
 
                 this.userName = "johnny+velocity@kodaris.com";//todo - remove
-                this.password = "velocity123";//todo - remove
+                this.decryptedPassword = "velocity123";//todo - remove
             }
         });
         /* set the title */
@@ -43,13 +44,17 @@ export class LoginComponent implements OnInit {
     login(formValues) {
         this.authService.login(formValues.userName, formValues.decryptedPassword, this.csrfToken)
             .subscribe((data: any) => {
-                if (!data.success) {
-                    this.toasterService.pop('success', 'Success', 'Login success');
-                    this.router.navigateByUrl(this.route.snapshot.queryParams['returnUrl'] || 'products');
-                } else {
+                  if (!data.success) {
+                      this.toasterService.pop('success', 'Success', 'Login success');
+                      this.router.navigateByUrl(this.route.snapshot.queryParams['returnUrl'] || 'products');
+                  } else {
+                      this.toasterService.pop('info', 'Info', 'Something went wrong. Try again.');
+                  }
+                },
+                (error: HttpErrorResponse) => {
                     this.toasterService.pop('error', 'Error', 'Login invalid');
                 }
-            })
+            );
     }
 
     /* logout the user */
