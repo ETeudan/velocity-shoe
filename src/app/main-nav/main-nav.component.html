@@ -9,51 +9,10 @@
     <mat-toolbar class="border-bottom">
       <img mat-card-image class="main-logo" src="assets/img/logo-with-title.png">
     </mat-toolbar>
-    <mat-nav-list class="left-nav-bar">
-      <div *ngFor="let menu of menus">
-        <a mat-list-item class="border-left" routerLinkActive="active" [routerLink]="[menu.link]">
-          <mat-icon svgIcon="{{menu.icon}}"></mat-icon>
-          <p>{{menu.text}}</p>
-        </a>
-      </div>
-    </mat-nav-list>
+    <app-menu-list></app-menu-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="border-bottom background-color-white">
-      <div fxLayout="row" fxLayoutAlign="start baseline" fxLayoutGap="10px" class="width-100">
-        <div fxFlex="50%" fxFlex.lt-md="50%" class="total-results">
-          <button type="button"
-                  aria-label="Toggle sidenav"
-                  mat-icon-button
-                  (click)="drawer.toggle()"
-                  *ngIf="isHandset$ | async">
-            <mat-icon svgIcon="menu" class="menu-navbar"></mat-icon>
-          </button>
-          <span>{{title}}</span>
-        </div>
-        <div fxFlex="50%" fxFlex.lt-md="50%">
-          <div fxLayout="row" fxLayoutAlign="end baseline" fxLayoutGap="0px">
-            <div>
-            </div>
-            <div class="padding-bottom-20">
-              <div fxLayout="row" fxLayoutAlign="center baseline">
-                <div>
-                  <mat-icon svgIcon="notifications_none"></mat-icon>
-                </div>
-                <div>
-                  <mat-icon svgIcon="mail_outline"></mat-icon>
-                </div>
-                <div>
-                  <a href="#">
-                    <img mat-card-image class="user-image" src="assets/img/user-img.png">
-                  </a>
-                  </div>
-                </div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </mat-toolbar>
+    <app-header-bar (buttonToggleClick)="drawer.toggle()"></app-header-bar>
     <!-- Content is plotted here by child component from routes - children component -->
     <router-outlet name="content"></router-outlet>
   </mat-sidenav-content>

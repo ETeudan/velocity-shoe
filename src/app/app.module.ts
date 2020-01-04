@@ -66,13 +66,17 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { ToasterModule } from 'angular2-toaster';
 import { MainNavService } from './main-nav/main-nav.service';
 import { NotFoundComponent } from './404-not-found/NotFound.component';
+import { HeaderBarComponent } from './main-nav/header-bar/header-bar.component';
+import { MenuListComponent } from './main-nav/menu-list/menu-list.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    MainNavComponent,
+        MainNavComponent,
+        HeaderBarComponent,
+        MenuListComponent,
         ProductListComponent,
         ProductDetailsComponent,
         LoginComponent,

@@ -1,0 +1,25 @@
+.border-left:hover {
+  border-left: 3px solid #2E5BFF;
+}
+
+.mat-nav-list a.active {
+  border-left: 3px solid #2E5BFF;
+  background: #fafafa;
+}
+
+.left-nav-bar p {
+  font-family: Rubik;
+  font-size: 15px !important;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #b0bac9;
+}
+
+.left-nav-bar .mat-icon {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 4px;
+}

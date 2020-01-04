@@ -31,20 +31,8 @@ mat-toolbar a {
   background-color: white;
 }
 
-.border-left:hover {
-  border-left: 3px solid #2E5BFF;
-}
-
-.user-image {
-  height: 30px;
-}
-
 .mat-list-base {
   padding-top: 0px !important;
-}
-
-.width-100 {
-  width: 100%
 }
 
 mat-toolbar .mat-icon,
@@ -52,33 +40,7 @@ mat-nav-list .mat-icon {
   color: #bfc5d2;
 }
 
-.left-nav-bar p {
-  font-family: Rubik;
-  font-size: 15px !important;
-  font-weight: normal;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  color: #b0bac9;
-}
-
-.left-nav-bar .mat-icon {
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-bottom: 4px;
-}
-
-.menu-navbar {
-  margin-bottom: 5px;
-}
-
 .main-logo {
   width: 60%;
   margin-left: 35px
-}
-
-.mat-nav-list a.active {
-  border-left: 3px solid #2E5BFF;
-  background: #fafafa;
 }
