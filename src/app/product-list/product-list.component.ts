@@ -21,12 +21,13 @@ export class ProductListComponent implements AfterViewInit, OnInit {
     numberOfRows: number;
     /* Columns displayed in the table. */
     displayedColumns = ['code', 'name', 'color', 'size', 'manufacturer', 'price', 'url'];
+    datasource: ProductListDataSource;
 
     constructor(private productService: ProductService, private route: ActivatedRoute, private auth: AuthService,
                 private titleService: Title, private mainNavService: MainNavService,
                 iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
         this.initializeMatIcons(iconRegistry, sanitizer);
-        this.numberOfRows = 20;
+        this.numberOfRows = 0;
     }
 
     ngOnInit() {
@@ -35,7 +36,9 @@ export class ProductListComponent implements AfterViewInit, OnInit {
     }
 
     ngAfterViewInit() {
-        this.table.dataSource = new ProductListDataSource(this.productService);
+        this.datasource = new ProductListDataSource(this.productService);
+        this.datasource.countRows().subscribe((countRows: number) => { this.numberOfRows = countRows});
+        this.table.dataSource = this.datasource;
     }
 
     initializeMatIcons(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
