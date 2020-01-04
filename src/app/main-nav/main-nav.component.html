@@ -10,34 +10,12 @@
       <img mat-card-image class="main-logo" src="assets/img/logo-with-title.png">
     </mat-toolbar>
     <mat-nav-list class="left-nav-bar">
-      <a mat-list-item class="border-left" [routerLink]="['/products']">
-        <mat-icon svgIcon="border_all"></mat-icon>
-        <p>Shoes</p>
-      </a>
-      <a mat-list-item class="border-left" href="#">
-        <mat-icon svgIcon="bar_chart"></mat-icon>
-        <p>Analytics</p>
-      </a>
-      <a mat-list-item class="border-left" href="#">
-        <mat-icon svgIcon="directions_car"></mat-icon>
-        <p>Employees</p>
-      </a>
-      <a mat-list-item class="border-left" href="#">
-        <mat-icon svgIcon="people_outline"></mat-icon>
-        <p>Customers</p>
-      </a>
-      <a mat-list-item class="border-left" href="#">
-        <mat-icon svgIcon="map"></mat-icon>
-        <p>Locations</p>
-      </a>
-      <a mat-list-item class="border-left" href="#">
-        <mat-icon svgIcon="mail_outline"></mat-icon>
-        <p>Chat</p>
-      </a>
-      <a mat-list-item class="border-left" href="#">
-        <mat-icon svgIcon="settings_applications"></mat-icon>
-        <p>Settings</p>
-      </a>
+      <div *ngFor="let menu of menus">
+        <a mat-list-item class="border-left" routerLinkActive="active" [routerLink]="[menu.link]">
+          <mat-icon svgIcon="{{menu.icon}}"></mat-icon>
+          <p>{{menu.text}}</p>
+        </a>
+      </div>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../shared/auth.service';
 import { Validators, FormControl } from '@angular/forms';
-import { Title, DomSanitizer } from '@angular/platform-browser';
-import { MatIconRegistry } from '@angular/material/icon';
+import { Title } from '@angular/platform-browser';
 import { ToasterService } from 'angular2-toaster';
 
 @Component({
@@ -21,9 +20,7 @@ export class LoginComponent implements OnInit {
     passwordForm = new FormControl('', [Validators.required]);
 
     constructor(private authService: AuthService, private route: ActivatedRoute, private router: Router,
-        private titleService: Title, iconRegistry: MatIconRegistry, sanitizer: DomSanitizer,
-        private toasterService: ToasterService) {
-       this.initializeMatIcons(iconRegistry, sanitizer);
+        private titleService: Title, private toasterService: ToasterService) {
     }
 
     ngOnInit() {
@@ -60,16 +57,6 @@ export class LoginComponent implements OnInit {
         if (this.authService.logout()) {
             this.router.navigate(['login'])
         }
-    }
-
-    /* initialize mat-icons */
-    initializeMatIcons(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-        iconRegistry.addSvgIcon(
-            'visibility',
-            sanitizer.bypassSecurityTrustResourceUrl('assets/icons/visibility-24px.svg'));
-        iconRegistry.addSvgIcon(
-            'visibility_off',
-            sanitizer.bypassSecurityTrustResourceUrl('assets/icons/visibility_off-24px.svg'));
     }
 
     /* get error message for input form */

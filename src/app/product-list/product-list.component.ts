@@ -1,8 +1,7 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Title, DomSanitizer } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import { MatTable } from '@angular/material/table';
-import { MatIconRegistry } from '@angular/material/icon';
 
 import { ProductListDataSource } from './product-list.datasource';
 import { MainNavService } from '../main-nav/main-nav.service';
@@ -24,9 +23,7 @@ export class ProductListComponent implements AfterViewInit, OnInit {
     datasource: ProductListDataSource;
 
     constructor(private productService: ProductService, private route: ActivatedRoute, private auth: AuthService,
-                private titleService: Title, private mainNavService: MainNavService,
-                iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-        this.initializeMatIcons(iconRegistry, sanitizer);
+                private titleService: Title, private mainNavService: MainNavService) {
         this.numberOfRows = 0;
     }
 
@@ -39,11 +36,5 @@ export class ProductListComponent implements AfterViewInit, OnInit {
         this.datasource = new ProductListDataSource(this.productService);
         this.datasource.countRows().subscribe((countRows: number) => { this.numberOfRows = countRows});
         this.table.dataSource = this.datasource;
-    }
-
-    initializeMatIcons(iconRegistry: MatIconRegistry, sanitizer: DomSanitizer) {
-        iconRegistry.addSvgIcon(
-            'keyboard_arrow_down',
-            sanitizer.bypassSecurityTrustResourceUrl('assets/icons/keyboard_arrow_down-24px.svg'));
     }
 }

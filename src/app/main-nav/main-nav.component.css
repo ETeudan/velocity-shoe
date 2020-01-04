@@ -77,3 +77,8 @@ mat-nav-list .mat-icon {
   width: 60%;
   margin-left: 35px
 }
+
+.mat-nav-list a.active {
+  border-left: 3px solid #2E5BFF;
+  background: #fafafa;
+}
