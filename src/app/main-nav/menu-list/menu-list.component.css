@@ -1,8 +1,8 @@
-.border-left:hover {
+.border-left .mat-list-item-content:hover {
   border-left: 3px solid #2E5BFF;
 }
 
-.mat-nav-list a.active {
+a.active .mat-list-item-content:not(:hover) {
   border-left: 3px solid #2E5BFF;
   background: #fafafa;
 }

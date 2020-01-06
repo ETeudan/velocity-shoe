@@ -1,6 +1,6 @@
 <mat-nav-list class="left-nav-bar">
   <div *ngFor="let menu of menus">
-    <a mat-list-item class="border-left" routerLinkActive="active" [routerLink]="[menu.link]">
+    <a fxFill mat-list-item class="border-left" routerLinkActive="active" [routerLink]="[menu.link]">
       <mat-icon svgIcon="{{menu.icon}}"></mat-icon>
       <p>{{menu.text}}</p>
     </a>
