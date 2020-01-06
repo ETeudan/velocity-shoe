@@ -25,30 +25,30 @@ export class ProductListDataSource extends DataSource<IProduct> {
         return this.totalRows;
     }
 
-  /**
-   * Connect this data source to the table. The table will only update when
-   * the returned stream emits new items.
-   * @returns A stream of the items to be rendered.
-   */
+    /**
+     * Connect this data source to the table. The table will only update when
+     * the returned stream emits new items.
+     * @returns A stream of the items to be rendered.
+     */
     connect(): Observable<IProduct[]> {
 
         return Observable.create((observer: Observer<IProduct[]>) => {
             this.productService.getProductsKodaris()
                 .subscribe((res: IProduct[]) => {
                     this.totalRows.next(res.length);
-                        observer.next(res)
-                        observer.complete()
-                    }, err => observer.error(err))
-          })
+                    observer.next(res);
+                    observer.complete();
+                }, err => observer.error(err));
+        });
     }
 
-    
 
-  /**
-   *  Called when the table is being destroyed. Use this function, to clean up
-   * any open connections or free any held resources that were set up during connect.
-   */
-  disconnect() {}
+
+    /**
+     *  Called when the table is being destroyed. Use this function, to clean up
+     * any open connections or free any held resources that were set up during connect.
+     */
+    disconnect() { }
 
 }
 

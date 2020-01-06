@@ -10,9 +10,9 @@ import { IProduct } from '../shared/product.model';
 import { AuthService } from '../shared/auth.service';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+    selector: 'app-product-list',
+    templateUrl: './product-list.component.html',
+    styleUrls: ['./product-list.component.css']
 })
 export class ProductListComponent implements AfterViewInit, OnInit {
     @ViewChild(MatTable, { static: false }) table: MatTable<IProduct>;
@@ -23,18 +23,18 @@ export class ProductListComponent implements AfterViewInit, OnInit {
     datasource: ProductListDataSource;
 
     constructor(private productService: ProductService, private route: ActivatedRoute, private auth: AuthService,
-                private titleService: Title, private mainNavService: MainNavService) {
+        private titleService: Title, private mainNavService: MainNavService) {
         this.numberOfRows = 0;
     }
 
     ngOnInit() {
-        this.titleService.setTitle("Product List - Velocity");
-        this.mainNavService.setTitle("Shoes");
+        this.titleService.setTitle('Product List - Velocity');
+        this.mainNavService.setTitle('Shoes');
     }
 
     ngAfterViewInit() {
         this.datasource = new ProductListDataSource(this.productService);
-        this.datasource.countRows().subscribe((countRows: number) => { this.numberOfRows = countRows});
+        this.datasource.countRows().subscribe((countRows: number) => { this.numberOfRows = countRows; });
         this.table.dataSource = this.datasource;
     }
 }

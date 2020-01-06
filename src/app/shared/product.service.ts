@@ -13,23 +13,23 @@ export class ProductService {
 
     /* get products from Kodaris API */
     getProductsKodaris(): Observable<IProduct[]> {
-        let options = {
+        const options = {
             headers: new HttpHeaders({
                 'Accept': 'application/json',
-                'X-CSRF-TOKEN': localStorage.getItem("token")
+                'X-CSRF-TOKEN': localStorage.getItem('token')
             })
         };
         return this.http.get<any>('https://velocitytestapp.kodaris.com/services/api/manager/products', options)
             .pipe(share(),
-                  map((receivedData: any) => receivedData.data));
+                map((receivedData: any) => receivedData.data));
     }
 
     /* get a single product from Kodaris API, based on the uuid's product */
     getProductKodaris(uuid: string): Observable<IProduct> {
-        let options = {
+        const options = {
             headers: new HttpHeaders({
-                'Accept': 'application/json',
-                'X-CSRF-TOKEN': localStorage.getItem("token")
+                Accept: 'application/json',
+                'X-CSRF-TOKEN': localStorage.getItem('token')
             })
         };
         return this.http.get<any>('https://velocitytestapp.kodaris.com/services/api/manager/product/' + uuid, options)
@@ -38,16 +38,16 @@ export class ProductService {
     }
 
     /* update a product using Kodaris API */
-    updateProductKodaris(product: IProduct): Observable<any>{
-        let options = {
+    updateProductKodaris(product: IProduct): Observable<any> {
+        const options = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
-                'Accept': 'application/json',
-                'X-CSRF-TOKEN': localStorage.getItem("token")
+                Accept: 'application/json',
+                'X-CSRF-TOKEN': localStorage.getItem('token')
             }),
             withCredentials: true
         };
-        let body = {
+        const body = {
             uuid: product.uuid,
             code: product.code,
             name: product.name,
@@ -59,12 +59,12 @@ export class ProductService {
             color: product.color,
             size: product.size,
             inStock: product.inStock
-        }
+        };
         return this.http.post<any>('https://velocitytestapp.kodaris.com/services/api/manager/product', body, options)
-          .pipe(
-              share(),
-              map((response: any) => {
-                  return of(response)
-              }));
+            .pipe(
+                share(),
+                map((response: any) => {
+                    return of(response);
+                }));
     }
 }

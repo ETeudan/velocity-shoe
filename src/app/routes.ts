@@ -7,7 +7,7 @@ import { ProductDetailsComponent } from './product-details/product-details.compo
 import { CanDeactivateGuard } from './shared/can-deactivate.guard';
 import { NotFoundComponent } from './404-not-found/NotFound.component';
 
-export const appRoutes:Routes = [
+export const appRoutes: Routes = [
     {
         path: 'products', component: MainNavComponent, canActivate: [AuthGuard],
         children: [
@@ -15,7 +15,7 @@ export const appRoutes:Routes = [
         ]
     },
     {
-        path: 'products/:uuid', component: MainNavComponent, canActivate: [AuthGuard], 
+        path: 'products/:uuid', component: MainNavComponent, canActivate: [AuthGuard],
         children: [
             { path: '', component: ProductDetailsComponent, canDeactivate: [CanDeactivateGuard], outlet: 'content' }
         ]
@@ -25,4 +25,4 @@ export const appRoutes:Routes = [
     { path: '404', component: NotFoundComponent },
     { path: '**', redirectTo: '/404' }
 
-]
+];

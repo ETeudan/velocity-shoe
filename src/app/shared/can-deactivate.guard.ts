@@ -1,6 +1,6 @@
-import { Injectable }    from '@angular/core';
+import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
-import { Observable }    from 'rxjs';
+import { Observable } from 'rxjs';
 
 /* Guard responsible with leaving the page if there are unsaved changes */
 export interface CanComponentDeactivate {

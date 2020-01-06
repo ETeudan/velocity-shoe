@@ -1,13 +1,18 @@
 <mat-sidenav-container class="sidenav-container background-color-white">
   <mat-sidenav
-      #drawer
-      class="sidenav"
-      fixedInViewport
-      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-      [mode]="(isHandset$ | async) ? 'over' : 'side'"
-      [opened]="(isHandset$ | async) === false">
+    #drawer
+    class="sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
     <mat-toolbar class="border-bottom">
-      <img mat-card-image class="main-logo" src="assets/img/logo-with-title.png">
+      <img
+        mat-card-image
+        class="main-logo"
+        src="assets/img/logo-with-title.png"
+      />
     </mat-toolbar>
     <app-menu-list></app-menu-list>
   </mat-sidenav>

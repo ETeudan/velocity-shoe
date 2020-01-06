@@ -1,19 +1,25 @@
 <mat-toolbar class="border-bottom background-color-white">
-  <div fxLayout="row" fxLayoutAlign="start baseline" fxLayoutGap="10px" class="width-100">
+  <div
+    fxLayout="row"
+    fxLayoutAlign="start baseline"
+    fxLayoutGap="10px"
+    class="width-100"
+  >
     <div fxFlex="50%" fxFlex.lt-md="50%" class="total-results">
-      <button type="button"
-              aria-label="Toggle sidenav"
-              mat-icon-button
-              (click)="toggleMenuBar()"
-              *ngIf="isHandset$ | async">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="toggleMenuBar()"
+        *ngIf="isHandset$ | async"
+      >
         <mat-icon svgIcon="menu" class="menu-navbar">543</mat-icon>
       </button>
-      <span>{{title}}</span>
+      <span>{{ title }}</span>
     </div>
     <div fxFlex="50%" fxFlex.lt-md="50%">
       <div fxLayout="row" fxLayoutAlign="end baseline" fxLayoutGap="0px">
-        <div>
-        </div>
+        <div></div>
         <div class="padding-bottom-20">
           <div fxLayout="row" fxLayoutAlign="center baseline">
             <div>
@@ -24,7 +30,11 @@
             </div>
             <div>
               <a href="#">
-                <img mat-card-image class="user-image" src="assets/img/user-img.png">
+                <img
+                  mat-card-image
+                  class="user-image"
+                  src="assets/img/user-img.png"
+                />
               </a>
             </div>
           </div>

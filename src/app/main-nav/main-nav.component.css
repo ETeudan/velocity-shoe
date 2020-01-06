@@ -24,7 +24,7 @@ mat-toolbar a {
 }
 
 .border-bottom {
-  border-bottom: solid 1px rgba(0,0,0,.12);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.12);
 }
 
 .background-color-white {
@@ -42,5 +42,5 @@ mat-nav-list .mat-icon {
 
 .main-logo {
   width: 60%;
-  margin-left: 35px
+  margin-left: 35px;
 }

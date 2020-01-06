@@ -1,5 +1,15 @@
-<form  #productForm="ngForm" (ngSubmit)="updateProduct(productForm.value)" autocomplete="off" novalidate class="form-margin">
-  <div fxLayout="row wrap" fxLayoutAlign="space-evenly baseline" fxLayoutGap="0px">
+<form
+  #productForm="ngForm"
+  (ngSubmit)="updateProduct(productForm.value)"
+  autocomplete="off"
+  novalidate
+  class="form-margin"
+>
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="space-evenly baseline"
+    fxLayoutGap="0px"
+  >
     <div fxFlex="65%" fxFlex.lt-md="100%">
       <div fxLayout="row wrap" fxLayoutAlign="center center">
         <div fxFlex="100%" fxFlexOffset="7%">
@@ -8,25 +18,52 @@
         <div fxFlex="100%" fxFlexOffset="7%">
           <mat-form-field fxFlex="93%" appearance="outline" *ngIf="product">
             <mat-label>Code</mat-label>
-            <input matInput [(ngModel)]="product.code" name="code" id="code" [(value)]="product.code" placeholder="Enter the code">
+            <input
+              matInput
+              [(ngModel)]="product.code"
+              name="code"
+              id="code"
+              [(value)]="product.code"
+              placeholder="Enter the code"
+            />
           </mat-form-field>
         </div>
         <div fxFlex="100%" fxFlexOffset="7%">
           <mat-form-field fxFlex="93%" appearance="outline" *ngIf="product">
             <mat-label>Name</mat-label>
-            <input matInput [(ngModel)]="product.name" name="name" id="name" [(value)]="product.name" placeholder="Enter the name">
+            <input
+              matInput
+              [(ngModel)]="product.name"
+              name="name"
+              id="name"
+              [(value)]="product.name"
+              placeholder="Enter the name"
+            />
           </mat-form-field>
         </div>
         <div fxFlex="100%" fxFlexOffset="7%">
           <mat-form-field fxFlex="93%" appearance="outline" *ngIf="product">
             <mat-label>Manufacturer</mat-label>
-            <input matInput [(ngModel)]="product.manufacturer" name="manufacturer" id="manufacturer" [(value)]="product.manufacturer" placeholder="Enter the name">
+            <input
+              matInput
+              [(ngModel)]="product.manufacturer"
+              name="manufacturer"
+              id="manufacturer"
+              [(value)]="product.manufacturer"
+              placeholder="Enter the name"
+            />
           </mat-form-field>
         </div>
         <div fxFlex="100%" fxFlexOffset="7%">
           <mat-form-field fxFlex="93%" appearance="outline" *ngIf="product">
             <mat-label>Rating</mat-label>
-            <mat-select [(ngModel)]="product.rating" [ngModelOptions]="{standalone: true}" (selectionChange)="makeDirty()" name="rating" id="rating">
+            <mat-select
+              [(ngModel)]="product.rating"
+              [ngModelOptions]="{ standalone: true }"
+              (selectionChange)="makeDirty()"
+              name="rating"
+              id="rating"
+            >
               <mat-option value="1 Star">1 Star</mat-option>
               <mat-option value="2 Stars">2 Stars</mat-option>
               <mat-option value="3 Stars">3 Stars</mat-option>
@@ -38,7 +75,15 @@
         <div fxFlex="100%" fxFlexOffset="7%">
           <mat-form-field fxFlex="93%" appearance="outline" *ngIf="product">
             <mat-label>Description</mat-label>
-            <textarea matInput class="not-resize" [(ngModel)]="product.description" name="description" id="description" rows="7" placeholder="Enter the description"></textarea>
+            <textarea
+              matInput
+              class="not-resize"
+              [(ngModel)]="product.description"
+              name="description"
+              id="description"
+              rows="7"
+              placeholder="Enter the description"
+            ></textarea>
           </mat-form-field>
         </div>
       </div>
@@ -49,57 +94,122 @@
           <p class="header-text">Attributes</p>
         </div>
         <div fxFlex="100%" fxFlexOffset.lt-md="7%">
-          <mat-form-field fxFlex="90%" fxFlex.lt-md="93%" appearance="outline" *ngIf="product">
+          <mat-form-field
+            fxFlex="90%"
+            fxFlex.lt-md="93%"
+            appearance="outline"
+            *ngIf="product"
+          >
             <mat-label>Color</mat-label>
-            <mat-select [(ngModel)]="product.color" [ngModelOptions]="{standalone: true}" (selectionChange)="makeDirty()" name="color" id="color">
+            <mat-select
+              [(ngModel)]="product.color"
+              [ngModelOptions]="{ standalone: true }"
+              (selectionChange)="makeDirty()"
+              name="color"
+              id="color"
+            >
               <mat-option value="Blue">Blue</mat-option>
               <mat-option value="Red">Red</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div fxFlex="100%" fxFlexOffset.lt-md="7%">
-          <mat-form-field fxFlex="90%" fxFlex.lt-md="93%" appearance="outline" *ngIf="product">
+          <mat-form-field
+            fxFlex="90%"
+            fxFlex.lt-md="93%"
+            appearance="outline"
+            *ngIf="product"
+          >
             <mat-label>Size</mat-label>
-            <mat-select [(ngModel)]="product.size" [ngModelOptions]="{standalone: true}" (selectionChange)="makeDirty()" name="size" id="size">
+            <mat-select
+              [(ngModel)]="product.size"
+              [ngModelOptions]="{ standalone: true }"
+              (selectionChange)="makeDirty()"
+              name="size"
+              id="size"
+            >
               <mat-option value="9.5">9.5</mat-option>
               <mat-option value="10">10</mat-option>
             </mat-select>
           </mat-form-field>
         </div>
         <div fxFlex="100%" fxFlexOffset.lt-md="7%">
-          <mat-form-field fxFlex="90%" fxFlex.lt-md="93%" appearance="outline" *ngIf="product">
+          <mat-form-field
+            fxFlex="90%"
+            fxFlex.lt-md="93%"
+            appearance="outline"
+            *ngIf="product"
+          >
             <mat-label>Price</mat-label>
-            <input matInput [(ngModel)]="product.price" name="price" id="price" type="number" placeholder="Enter the price">
+            <input
+              matInput
+              [(ngModel)]="product.price"
+              name="price"
+              id="price"
+              type="number"
+              placeholder="Enter the price"
+            />
           </mat-form-field>
         </div>
         <div fxFlex="100%" fxFlexOffset.lt-md="7%">
-          <mat-form-field fxFlex="90%" fxFlex.lt-md="93%" appearance="outline" *ngIf="product">
+          <mat-form-field
+            fxFlex="90%"
+            fxFlex.lt-md="93%"
+            appearance="outline"
+            *ngIf="product"
+          >
             <mat-label>Shipping</mat-label>
-            <input matInput [(ngModel)]="product.shipping" name="shipping" id="shipping" placeholder="Enter the shipping">
+            <input
+              matInput
+              [(ngModel)]="product.shipping"
+              name="shipping"
+              id="shipping"
+              placeholder="Enter the shipping"
+            />
           </mat-form-field>
         </div>
         <div fxFlex="100%" fxFlexOffset.lt-md="7%">
-          <mat-form-field fxFlex="90%" fxFlex.lt-md="93%" appearance="outline" *ngIf="product">
+          <mat-form-field
+            fxFlex="90%"
+            fxFlex.lt-md="93%"
+            appearance="outline"
+            *ngIf="product"
+          >
             <mat-label>In Stock</mat-label>
-            <input matInput [(ngModel)]="product.inStock" name="inStock" id="inStock" placeholder="Enter the in stock">
+            <input
+              matInput
+              [(ngModel)]="product.inStock"
+              name="inStock"
+              id="inStock"
+              placeholder="Enter the in stock"
+            />
           </mat-form-field>
         </div>
       </div>
     </div>
   </div>
-  <div fxLayout="row wrap" fxLayoutAlign="space-evenly baseline" fxLayoutGap="0px">
-    <div fxFlex="65%" fxFlex.lt-md="100%" >
+  <div
+    fxLayout="row wrap"
+    fxLayoutAlign="space-evenly baseline"
+    fxLayoutGap="0px"
+  >
+    <div fxFlex="65%" fxFlex.lt-md="100%">
       <div fxLayout="row wrap" fxLayoutAlign="center center">
         <div fxFlex="100%" fxFlexOffset="7%">
           <span>
             <toaster-container></toaster-container>
-            <button mat-raised-button type="submit" [disabled]="productForm.invalid" class="color-submit-btn">Save Changes</button>
+            <button
+              mat-raised-button
+              type="submit"
+              [disabled]="productForm.invalid"
+              class="color-submit-btn"
+            >
+              Save Changes
+            </button>
           </span>
         </div>
       </div>
     </div>
-    <div fxFlex="35%" fxFlex.lt-md="100%">
-    </div>
+    <div fxFlex="35%" fxFlex.lt-md="100%"></div>
   </div>
 </form>
-

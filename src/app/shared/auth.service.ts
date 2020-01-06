@@ -4,7 +4,7 @@ import { of, BehaviorSubject, Observable } from 'rxjs';
 import { map, share, tap } from 'rxjs/operators';
 
 import { IUser } from './user.model';
-//import decode from 'jwt-decode';
+// import decode from 'jwt-decode';
 
 /* AuthService - the service responsible with login */
 @Injectable({ providedIn: 'root' })
@@ -20,13 +20,13 @@ export class AuthService {
     /* check if user is authenticated */
     /* TODO: check if token expired */
     isAuthenticated(): boolean {
-        return !!this.currentUser
+        return !!this.currentUser;
     }
 
     /* Retrieve the token from Kodaris API */
     getTokenKodaris() {
-        let options = { headers: new HttpHeaders({ 'Accept': 'application/json' }) };
-        return this.http.get<any>('https://velocitytestapp.kodaris.com/services/api/manager/token', options);         
+        const options = { headers: new HttpHeaders({ 'Accept': 'application/json' }) };
+        return this.http.get<any>('https://velocitytestapp.kodaris.com/services/api/manager/token', options);
     }
 
     /* save the token to localStorage */
@@ -36,12 +36,12 @@ export class AuthService {
 
     /* save the user to localStorage */
     setUser(user: IUser) {
-        localStorage.setItem('currentUser', JSON.stringify(user))
+        localStorage.setItem('currentUser', JSON.stringify(user));
     }
 
     /* authenticate the user using Kodaris API */
-    login(username, password, authToken):Observable<any> {
-        let options = {
+    login(username, password, authToken): Observable<any> {
+        const options = {
             headers: new HttpHeaders({
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
@@ -50,11 +50,11 @@ export class AuthService {
             withCredentials: true
         };
 
-        let body = {
+        const body = {
             authToken: authToken,
             userName: username,
             decryptedPassword: password,
-        }
+        };
         return this.http.post<any>('https://velocitytestapp.kodaris.com/services/api/manager/login', body, options)
             .pipe(
                 share(),
@@ -64,7 +64,7 @@ export class AuthService {
                         const user: IUser = {
                             currentEmail: username,
                             token: response.csrfToken
-                        }
+                        };
                         this.setUser(user);
                         this.setToken(response.csrfToken);
                         this.currentUser = user;
@@ -75,9 +75,9 @@ export class AuthService {
     }
 
     /* log out the user - not used in app */
-    logout() : boolean {
-        localStorage.removeItem('currentUser')
-        this.currentUser = null;// = undefined;;
+    logout(): boolean {
+        localStorage.removeItem('currentUser');
+        this.currentUser = null;
         this.currentUserSubject.next(null);
         return true;
     }

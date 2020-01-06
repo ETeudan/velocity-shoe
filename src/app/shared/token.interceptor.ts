@@ -15,12 +15,12 @@ export class TokenInterceptor implements HttpInterceptor {
     constructor(private router: Router) {
     }
 
-    //intercept all HttpRequests and make small changes (eg. add withCredentials option, check for 401 response))
+    // intercept all HttpRequests and make small changes (eg. add withCredentials option, check for 401 response))
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-      //add withCredentials to the each HttpRequest
-      req = req.clone({
-          withCredentials: true
-      });
+        // add withCredentials to the each HttpRequest
+        req = req.clone({
+            withCredentials: true
+        });
 
         return next.handle(req).pipe(tap(() => { },
             (err: any) => {

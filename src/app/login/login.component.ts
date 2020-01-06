@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { AuthService } from '../shared/auth.service';
-import { Validators, FormControl } from '@angular/forms';
-import { Title } from '@angular/platform-browser';
-import { ToasterService } from 'angular2-toaster';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
+import { Title } from '@angular/platform-browser';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToasterService } from 'angular2-toaster';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
-  selector: 'app-login',
+    selector: 'app-login',
     templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
     hide = true;
@@ -31,26 +31,26 @@ export class LoginComponent implements OnInit {
                 this.csrfToken = data.csrfToken;
                 this.tokenLoaded = true;
 
-                this.userName = "johnny+velocity@kodaris.com";//todo - remove
-                this.decryptedPassword = "velocity123";//todo - remove
+                this.userName = 'johnny+velocity@kodaris.com'; // todo - remove
+                this.decryptedPassword = 'velocity123'; // todo - remove
             }
         });
         /* set the title */
-        this.titleService.setTitle("Login - Velocity");
+        this.titleService.setTitle('Login - Velocity');
     }
 
-    
+
     /* login the user */
     login(formValues) {
         this.authService.login(formValues.userName, formValues.decryptedPassword, this.csrfToken)
             .subscribe((data: any) => {
-                  if (!data.success) {
-                      this.toasterService.pop('success', 'Success', 'Login success');
-                      this.router.navigateByUrl(this.route.snapshot.queryParams['returnUrl'] || 'products');
-                  } else {
-                      this.toasterService.pop('info', 'Info', 'Something went wrong. Try again.');
-                  }
-                },
+                if (!data.success) {
+                    this.toasterService.pop('success', 'Success', 'Login success');
+                    this.router.navigateByUrl(this.route.snapshot.queryParams.returnUrl || 'products');
+                } else {
+                    this.toasterService.pop('info', 'Info', 'Something went wrong. Try again.');
+                }
+            },
                 (error: HttpErrorResponse) => {
                     this.toasterService.pop('error', 'Error', 'Login invalid');
                 }
@@ -60,7 +60,7 @@ export class LoginComponent implements OnInit {
     /* logout the user */
     logout() {
         if (this.authService.logout()) {
-            this.router.navigate(['login'])
+            this.router.navigate(['login']);
         }
     }
 

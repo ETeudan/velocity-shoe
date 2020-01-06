@@ -21,7 +21,7 @@ export class MenuListComponent {
     { link: '/#', icon: 'map', text: 'Locations' },
     { link: '/#', icon: 'mail_outline', text: 'Chat' },
     { link: '/#', icon: 'settings_applications', text: 'Settings' },
-    ]
+    ];
 
     constructor() {
     }

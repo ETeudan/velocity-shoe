@@ -17,7 +17,7 @@ export class HeaderBarComponent implements OnInit {
         .pipe(
             map(result => result.matches),
             shareReplay()
-    );
+        );
     @Output() buttonToggleClick = new EventEmitter();
     /* title var for the header */
     title: string;
