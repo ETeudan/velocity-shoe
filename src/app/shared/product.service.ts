@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { share, map } from 'rxjs/operators';
+import { share, map, catchError } from 'rxjs/operators';
 
 import { IProduct } from './product.model';
 
@@ -33,7 +33,10 @@ export class ProductService {
             })
         };
         return this.http.get<any>('https://velocitytestapp.kodaris.com/services/api/manager/product/' + uuid, options)
-            .pipe(map((receivedData: any) => receivedData.data));
+          .pipe(
+            map((receivedData: any) => receivedData.data),
+            catchError(err => { console.error(err); throw err; })
+          );
 
     }
 
